@@ -21,6 +21,7 @@ jobs:
        # mkdir ak
        cd ak
        git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
+       cd ..
        ls
        dir
        
