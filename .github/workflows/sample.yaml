@@ -1,91 +1,38 @@
-# name: Java CI
+name: Java CI
 
-# on:
-#   push:
-#     branches:
-#       - main
-
-# jobs:
-#   build:
-#     runs-on: windows-latest  
-
-#     steps:
-#     - name: Checkout this repository
-#       uses: actions/checkout@v2
-#       with:
-#        path: 'ak'
-     
-      
-
-#     - name: Clone java-repo-one repository
-#       run: |
-#        dir
-#        pwd
-#        # mkdir ak
-#        cd D:
-#        dir
-
-#        git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
-#        ls
-#        dir
-       
-#        # cd java-repo-one
-#        # ls
-#        # dir
-#        # pwd
-#        javac DitaMapProcessor.java
-#           java DitaMapProcessor
-          
-#        cat DitaMapProcessor.java
-       
-
-#     - name: Set up Java JDK
-#       uses: actions/setup-java@v2
-#       with:
-#         distribution: "adopt"
-#         java-version: '17.0.11'
-
-name: Example Workflow
-
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest  
 
     steps:
     - name: Checkout this repository
       uses: actions/checkout@v2
-      with:
-        path: 'ak'
-    
-    - name: List files in ak directory
-      run: |
-       
-       
-       git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
-       ls ak
-        
-    - name: Compile Java code
-      run: |
-              cd ak     
-              java -version
-              dir
-              ls 
-              pwd
-         
 
+     
       
-    - name: Run Java code
-      run: | 
-          pwd
-          dir
-          cd ak
-          cd java-repo-one
-          java DitaMapProcessor
 
-    - name: Upload output files
-      uses: actions/upload-artifact@v2
-      with:
-        name: dita-output-files
-        path: java-repo-one/*.dita
+    - name: Clone java-repo-one repository
+      run: |
+       
+       dir
+       ls
+
+       git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
+       ls
+       dir
+       
+       cd java-repo-one
+       ls
+       dir
+       pwd
+       javac DitaMapProcessor.java
+          java DitaMapProcessor
+          
+       cat DitaMapProcessor.java
+       
+
