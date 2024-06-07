@@ -23,6 +23,8 @@ jobs:
        cd java-repo-one
        ls
        dir
+          java DitaMapProcessor
+          
        cat DitaMapProcessor.java
        
 
