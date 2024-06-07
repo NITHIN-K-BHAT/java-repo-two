@@ -29,16 +29,17 @@ jobs:
       run: |
          
          cd java-repo-one
-         ls -R
+         
          java DitaMapProcessor
          
     - name: List files for debugging
       run: |
          echo "Listing all files in java-repo-one directory:"
          dir java-repo-one
-         ls -R
+         
          echo "Listing all .dita files in java-repo-one directory:"
          dir java-repo-one\*.dita
+         ls -la 
 
     - name: Upload output files
       uses: actions/upload-artifact@v2
