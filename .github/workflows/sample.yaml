@@ -35,6 +35,8 @@ jobs:
 
        javac DitaMapProcessor.java
        java DitaMapProcessor
+       ls
+      
           
       
 
