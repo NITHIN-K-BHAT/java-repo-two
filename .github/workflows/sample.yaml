@@ -30,6 +30,9 @@ jobs:
        ls
        dir
        pwd
+       cd D:\a\java-repo-two\java-repo-two
+      cp -r java-repo-one\* .
+
        javac DitaMapProcessor.java
        java DitaMapProcessor
           
