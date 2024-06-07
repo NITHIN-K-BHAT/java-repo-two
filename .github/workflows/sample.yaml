@@ -12,6 +12,9 @@ jobs:
     steps:
     - name: Checkout this repository
       uses: actions/checkout@v2
+      with:
+       path: 'ak'
+      
 
     - name: Clone java-repo-one repository
       run: |
