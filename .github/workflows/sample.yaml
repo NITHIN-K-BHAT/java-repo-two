@@ -24,13 +24,16 @@ jobs:
         
     - name: Compile Java code
       run: javac java-repo-one/DitaMapProcessor.java
+        ls  
       
     - name: Run Java code
       run: | 
          cd java-repo-one
          java DitaMapProcessor
+         ls
 
     - name: Upload output files
+        ls
       uses: actions/upload-artifact@v2
       with:
         name: dita-output-files
