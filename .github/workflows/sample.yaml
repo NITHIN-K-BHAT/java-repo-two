@@ -24,6 +24,7 @@ jobs:
         
     - name: Compile Java code
       run: |
+             java -version
              dir
              ls 
              pwd
