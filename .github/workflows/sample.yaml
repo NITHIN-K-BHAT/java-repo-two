@@ -3,11 +3,11 @@ name: Java CI
 on:
   push:
     branches:
-      - main
+      - Main
 
 jobs:
   build:
-    runs-on: Windows-latest
+    runs-on: windows-latest  
 
     steps:
     - name: Checkout this repository
@@ -26,24 +26,12 @@ jobs:
       run: javac java-repo-one/DitaMapProcessor.java
       
     - name: Run Java code
-      run: |
-         
+      run: | 
          cd java-repo-one
-         
          java DitaMapProcessor
-         
-    - name: List files for debugging
-      run: |
-         echo "Listing all files in java-repo-one directory:"
-         dir java-repo-one
-         
-         echo "Listing all .dita files in java-repo-one directory:"
-         dir java-repo-one\*.dita
-         ls -la 
 
     - name: Upload output files
       uses: actions/upload-artifact@v2
       with:
         name: dita-output-files
         path: java-repo-one/*.dita
-        if-no-files-found: warn
