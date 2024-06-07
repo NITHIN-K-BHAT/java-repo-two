@@ -27,7 +27,7 @@ jobs:
       
     - name: Run Java code
       run: | 
-         cd java-repo-one
+         # cd java-repo-one
          java DitaMapProcessor
 
     - name: Upload output files
