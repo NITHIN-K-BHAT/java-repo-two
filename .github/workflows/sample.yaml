@@ -14,16 +14,16 @@ jobs:
       uses: actions/checkout@v2
       with:
        path: 'ak'
-       run: |
-        dir
-        pwd
+     
       
 
     - name: Clone java-repo-one repository
       run: |
+       dir
+       pwds
        # mkdir ak
        cd ak
-       git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
+       # git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
        ls
        dir
        
