@@ -1,0 +1,37 @@
+name: Java CI
+
+on:
+  push:
+    branches:
+      - Main
+
+jobs:
+  build:
+    runs-on: windows-latest  
+
+    steps:
+    - name: Checkout this repository
+      uses: actions/checkout@v2
+
+    - name: Clone java-repo-one repository
+      run: git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
+
+    - name: Set up Java JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: "adopt"
+        java-version: '17.0.11'
+        
+    - name: Compile Java code
+      run: javac java-repo-one/DitaMapProcessor.java
+      
+    - name: Run Java code
+      run: | 
+         cd java-repo-one
+         java DitaMapProcessor
+
+    - name: Upload output files
+      uses: actions/upload-artifact@v2
+      with:
+        name: dita-output-files
+        path: java-repo-one/*.dita
