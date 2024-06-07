@@ -20,7 +20,7 @@ jobs:
     - name: Clone java-repo-one repository
       run: |
        dir
-       pwds
+       pwd
        # mkdir ak
        cd ak
        # git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
