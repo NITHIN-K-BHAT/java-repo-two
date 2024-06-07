@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: Windows-latest
 
     steps:
     - name: Checkout this repository
@@ -27,7 +27,7 @@ jobs:
       
     - name: Run Java code
       run: |
-         ls -R
+         
          cd java-repo-one
          ls -R
          java DitaMapProcessor
@@ -36,6 +36,7 @@ jobs:
       run: |
          echo "Listing all files in java-repo-one directory:"
          dir java-repo-one
+         ls -R
          echo "Listing all .dita files in java-repo-one directory:"
          dir java-repo-one\*.dita
 
