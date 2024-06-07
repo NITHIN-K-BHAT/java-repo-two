@@ -21,7 +21,7 @@ jobs:
        
        dir
        ls
-
+       cd  D:\a\java-repo-two\java-repo-two
        git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
        ls
        dir
@@ -31,7 +31,7 @@ jobs:
        dir
        pwd
        javac DitaMapProcessor.java
-          java DitaMapProcessor
+       java DitaMapProcessor
           
        cat DitaMapProcessor.java
        
