@@ -42,7 +42,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: dita-output-files
-        path: java-repo-two/*.dita
+        path: java-repo-two/java-repo-two/*.dita
 
        
 
