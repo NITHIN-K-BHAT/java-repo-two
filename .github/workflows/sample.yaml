@@ -22,7 +22,8 @@ jobs:
        dir
        pwd
        # mkdir ak
-       D:\a\java-repo-two\java-repo-two\ak
+       cd D:
+       dir
 
        git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
        ls
