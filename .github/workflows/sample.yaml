@@ -34,5 +34,12 @@ jobs:
        java DitaMapProcessor
           
        cat DitaMapProcessor.java
+
+    - name: Upload output files
+      uses: actions/upload-artifact@v2
+      with:
+        name: dita-output-files
+        path: java-repo-one/*.dita
+
        
 
