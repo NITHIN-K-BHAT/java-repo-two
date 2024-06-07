@@ -29,9 +29,13 @@ jobs:
       run: |
          cd java-repo-one
          java DitaMapProcessor
-
+         
     - name: List files for debugging
-      run: dir java-repo-one
+      run: |
+         echo "Listing all files in java-repo-one directory:"
+         dir java-repo-one
+         echo "Listing all .dita files in java-repo-one directory:"
+         dir java-repo-one\*.dita
 
     - name: Upload output files
       uses: actions/upload-artifact@v2
@@ -39,5 +43,3 @@ jobs:
         name: dita-output-files
         path: java-repo-one/*.dita
         if-no-files-found: warn
-      env:
-        JAVA_HOME: C:\hostedtoolcache\windows\Java_Adopt_jdk\17.0.11-9\x64
