@@ -23,6 +23,8 @@ jobs:
        cd java-repo-one
        ls
        dir
+       cat DitaMapProcessor.java
+       
 
     - name: Set up Java JDK
       uses: actions/setup-java@v2
