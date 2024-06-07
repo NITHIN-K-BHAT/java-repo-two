@@ -23,12 +23,17 @@ jobs:
         java-version: '17.0.11'
         
     - name: Compile Java code
-      run: javac java-repo-one/DitaMapProcessor.java
+      run: |
+         javac java-repo-one/DitaMapProcessor.java\
+         dir
+
       
     - name: Run Java code
       run: | 
-         cd java-repo-one
-         java DitaMapProcessor
+          pwd
+          dir
+          cd java-repo-one
+          java DitaMapProcessor
 
     - name: Upload output files
       uses: actions/upload-artifact@v2
