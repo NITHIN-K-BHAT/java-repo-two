@@ -24,8 +24,10 @@ jobs:
         
     - name: Compile Java code
       run: |
-         javac java-repo-one/DitaMapProcessor.java\
-         dir
+             dir
+             ls 
+             pwd
+         
 
       
     - name: Run Java code
