@@ -1,49 +1,66 @@
-name: Java CI
+# name: Java CI
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   build:
+#     runs-on: windows-latest  
+
+#     steps:
+#     - name: Checkout this repository
+#       uses: actions/checkout@v2
+#       with:
+#        path: 'ak'
+     
+      
+
+#     - name: Clone java-repo-one repository
+#       run: |
+#        dir
+#        pwd
+#        # mkdir ak
+#        cd D:
+#        dir
+
+#        git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
+#        ls
+#        dir
+       
+#        # cd java-repo-one
+#        # ls
+#        # dir
+#        # pwd
+#        javac DitaMapProcessor.java
+#           java DitaMapProcessor
+          
+#        cat DitaMapProcessor.java
+       
+
+#     - name: Set up Java JDK
+#       uses: actions/setup-java@v2
+#       with:
+#         distribution: "adopt"
+#         java-version: '17.0.11'
+
+name: Example Workflow
+
+on: [push]
 
 jobs:
   build:
-    runs-on: windows-latest  
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout this repository
       uses: actions/checkout@v2
       with:
-       path: 'ak'
-     
-      
-
-    - name: Clone java-repo-one repository
-      run: |
-       dir
-       pwd
-       # mkdir ak
-       cd D:
-       dir
-
-       git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
-       ls
-       dir
-       
-       # cd java-repo-one
-       # ls
-       # dir
-       # pwd
-       javac DitaMapProcessor.java
-          java DitaMapProcessor
-          
-       cat DitaMapProcessor.java
-       
-
-    - name: Set up Java JDK
-      uses: actions/setup-java@v2
-      with:
-        distribution: "adopt"
-        java-version: '17.0.11'
+        path: 'ak'
+    
+    - name: List files in ak directory
+      run: ls ak
         
     - name: Compile Java code
       run: |
