@@ -36,7 +36,7 @@ jobs:
        javac DitaMapProcessor.java
        java DitaMapProcessor
           
-       cat DitaMapProcessor.java
+      
 
     - name: Upload output files
       uses: actions/upload-artifact@v2
