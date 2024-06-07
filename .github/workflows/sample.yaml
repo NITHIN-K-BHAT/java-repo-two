@@ -14,7 +14,10 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Clone java-repo-one repository
-      run: git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
+      run: |
+       mkdir ak
+       cd ak
+       git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
 
     - name: Set up Java JDK
       uses: actions/setup-java@v2
@@ -24,10 +27,11 @@ jobs:
         
     - name: Compile Java code
       run: |
-             java -version
-             dir
-             ls 
-             pwd
+              cd ak     
+              java -version
+              dir
+              ls 
+              pwd
          
 
       
@@ -35,6 +39,7 @@ jobs:
       run: | 
           pwd
           dir
+          cd ak
           cd java-repo-one
           java DitaMapProcessor
 
