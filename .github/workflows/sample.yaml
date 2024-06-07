@@ -61,8 +61,8 @@ jobs:
     
     - name: List files in ak directory
       run: |
-       ls ak
        cd ak
+       
        git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
        ls ak
         
