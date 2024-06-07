@@ -23,9 +23,11 @@ jobs:
        git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
        ls
        dir
+       
        cd java-repo-one
        ls
        dir
+       javac DitaMapProcessor.java
           java DitaMapProcessor
           
        cat DitaMapProcessor.java
