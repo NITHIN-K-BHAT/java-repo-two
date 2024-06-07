@@ -18,6 +18,8 @@ jobs:
        mkdir ak
        cd ak
        git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
+       ls
+       dir
 
     - name: Set up Java JDK
       uses: actions/setup-java@v2
