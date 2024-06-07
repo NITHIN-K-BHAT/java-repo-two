@@ -60,7 +60,10 @@ jobs:
         path: 'ak'
     
     - name: List files in ak directory
-      run: ls ak
+      run: |
+       ls ak
+       git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
+       ls ak
         
     - name: Compile Java code
       run: |
