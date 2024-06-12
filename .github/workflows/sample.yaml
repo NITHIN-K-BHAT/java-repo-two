@@ -1,5 +1,5 @@
 name: Java CI
- 
+
 on:
   push:
     branches:
@@ -13,32 +13,23 @@ jobs:
     - name: Checkout this repository
       uses: actions/checkout@v2
 
-     
-      
-
     - name: Clone java-repo-one repository
       run: |
-       
-       dir
-       ls
-       cd  D:\a\java-repo-two\java-repo-two
-       git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
-       ls
-       dir
-       
-       cd java-repo-one
-       ls
-       dir
-       pwd
-       cd D:\a\java-repo-two\java-repo-two
-       cp -r java-repo-one\* .
+        cd D:\a\java-repo-two\java-repo-two
+        git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
+        cp -r java-repo-one\* .
 
-       javac DitaMapProcessor.java
-       java DitaMapProcessor
-       ls
-      
-          
-      
+    - name: Compile and run Java program
+      run: |
+        javac DitaMapProcessor.java
+        java DitaMapProcessor
+
+    - name: Detect changes in specific files
+      id: detect-changes
+      run: |
+        git fetch
+        git diff --name-only HEAD^ HEAD > changed_files.txt
+        if findstr /c:"specific-file.txt" changed_files.txt > nul; then echo "specific-file.txt" >> changed_files.txt; fi
 
     - name: Upload output files
       uses: actions/upload-artifact@v2
@@ -46,5 +37,9 @@ jobs:
         name: dita-output-files
         path: D:\a\java-repo-two\java-repo-two/*.dita
 
-       
-
+    - name: Upload changed files
+      if: success() && steps.detect-changes.outputs.changes
+      uses: actions/upload-artifact@v2
+      with:
+        name: changed-files
+        path: D:\a\java-repo-two\java-repo-two/changed_files.txt
