@@ -34,14 +34,21 @@ jobs:
         uses: tj-actions/changed-files@v40
         with:
           token: ${{ secrets.token }}
-                ls
+
+  print-changes:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Get changed files
+        id: changed
+        uses: tj-actions/changed-files@v40
+        with:
+          token: ${{ secrets.token }}
 
       - name: Print changed files
         run: |
           echo "Changed files:"
-          ls
-          cat changed-files.dita
-          ls
+          echo "${{ steps.changed.outputs.changed-files }}"
 
       - name: Upload output files
         uses: actions/upload-artifact@v2
