@@ -46,6 +46,7 @@ jobs:
 
         ls
         pwd
+        cat changed_files.txt
       shell: pwsh
                         
 
