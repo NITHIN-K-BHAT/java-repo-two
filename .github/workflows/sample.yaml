@@ -14,46 +14,18 @@ jobs:
 
       - name: Clone java-repo-one repository
         run: |
-          dir
-          ls
           cd D:\a\java-repo-two\java-repo-two
           git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
-          ls
-          dir
           cd java-repo-one
-          ls
-          dir
-          pwd
-          cd D:\a\java-repo-two\java-repo-two
-          cp -r java-repo-one\* .
+          cp -r ./* ../
+          cd ..
           javac DitaMapProcessor.java
           java DitaMapProcessor
-          ls
 
-      - name: Check changed files
-        id: changed
-        uses: tj-actions/changed-files@v40
-        with:
-          token: ${{ secrets.token }}
-                ls
-                pwd
-                dir
-       
-      - name: Print changed files
+      - name: Check diff for specific file
         run: |
-          echo "Changed files:"
-          echo "${{ steps.changed.outputs.changed-files }}"
-
-          echo "hello"
-          ls 
-          ls -R
-
-      - name: Upload changed files
-        uses: actions/upload-artifact@v2
-        with:
-          name: changed-files
-          path: ${{ steps.changed.outputs.changed-files }}
-          if-no-files-found: error
+          cd D:\a\java-repo-two\java-repo-two
+          git diff HEAD^ HEAD -- java-repo-one/<path-to-file>
 
       - name: Upload output files
         uses: actions/upload-artifact@v2
