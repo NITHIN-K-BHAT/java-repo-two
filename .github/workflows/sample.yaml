@@ -7,40 +7,41 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest  
-
+    runs-on: windows-latest
     steps:
-    - name: Checkout this repository
-      uses: actions/checkout@v2
+      - name: Checkout this repository
+        uses: actions/checkout@v2
 
-    - name: Clone java-repo-one repository
-      run: |
-        cd D:\a\java-repo-two\java-repo-two
-        git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
-        cp -r java-repo-one\* .
+      - name: Clone java-repo-one repository
+        run: |
+          dir
+          ls
+          cd D:\a\java-repo-two\java-repo-two
+          git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
+          ls
+          dir
+          cd java-repo-one
+          ls
+          dir
+          pwd
+          cd D:\a\java-repo-two\java-repo-two
+          cp -r java-repo-one\* .
+          javac DitaMapProcessor.java
+          java DitaMapProcessor
+          ls
 
-    - name: Compile and run Java program
-      run: |
-        javac DitaMapProcessor.java
-        java DitaMapProcessor
+      - name: Check changed files
+        uses: tj-actions/changed-files@v40
+        with:
+          token: ${{ secrets.token }}
 
-    - name: Detect and print changes in specific files
-      run: |
-        git fetch
-        # Check if there is a previous commit
-        if (git rev-parse HEAD~1 > $null 2>&1) {
-          # Get the list of changed files between the current commit and the previous commit
-          $changedFiles = git diff --name-only HEAD~1 HEAD
-          $changedFiles | Out-File -FilePath changed_files.txt
+      - name: Print changed files
+        run: |
+          echo "Changed files:"
+          cat changed-files.txt
 
-          # Print the changes for each changed file
-          foreach ($file in $changedFiles) {
-            if (Test-Path $file) {
-              Write-Output "Changes in ${file}:"
-              git diff HEAD~1 HEAD -- ${file}
-            }
-          }
-        } else {
-          echo "Initial commit or no previous commit found."
-        }
-      shell: pwsh
+      - name: Upload output files
+        uses: actions/upload-artifact@v2
+        with:
+          name: dita-output-files
+          path: D:\a\java-repo-two\java-repo-two/*.dita
