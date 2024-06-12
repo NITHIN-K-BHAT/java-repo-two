@@ -46,7 +46,7 @@ jobs:
 
         ls
         pwd
-        cat changed_files.txt
+        cat D:\a\java-repo-two\java-repo-two\changed_files.txt
       shell: pwsh
                         
 
