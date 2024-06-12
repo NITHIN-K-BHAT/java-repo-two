@@ -36,8 +36,8 @@ jobs:
           # Print the changes for each changed file
           foreach ($file in $changedFiles) {
             if (Test-Path $file) {
-              Write-Output "Changes in $file:"
-              git diff HEAD~1 HEAD -- $file
+              Write-Output "Changes in ${file}:"
+              git diff HEAD~1 HEAD -- ${file}
             }
           }
         } else {
