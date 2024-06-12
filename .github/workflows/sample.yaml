@@ -24,41 +24,23 @@ jobs:
         javac DitaMapProcessor.java
         java DitaMapProcessor
 
-    - name: Detect changes in specific files
-      id: detect-changes
+    - name: Detect and print changes in specific files
       run: |
         git fetch
         # Check if there is a previous commit
         if (git rev-parse HEAD~1 > $null 2>&1) {
           # Get the list of changed files between the current commit and the previous commit
-          git diff --name-only HEAD~1 HEAD > changed_files.txt
-        } else {
-          echo "Initial commit or no previous commit found." > changed_files.txt
-        }
-        # Create a directory to store the changed files
-        mkdir changed_files
-        # Copy each changed file to the 'changed_files' directory
-        foreach ($file in Get-Content changed_files.txt) {
-          if (Test-Path $file) {
-            Copy-Item -Path $file -Destination changed_files -Force
+          $changedFiles = git diff --name-only HEAD~1 HEAD
+          $changedFiles | Out-File -FilePath changed_files.txt
+
+          # Print the changes for each changed file
+          foreach ($file in $changedFiles) {
+            if (Test-Path $file) {
+              Write-Output "Changes in $file:"
+              git diff HEAD~1 HEAD -- $file
+            }
           }
+        } else {
+          echo "Initial commit or no previous commit found."
         }
-
-        ls
-        pwd
-        cat D:\a\java-repo-two\java-repo-two\changed_files.txt
       shell: pwsh
-                        
-
-    - name: Upload output files
-      uses: actions/upload-artifact@v2
-      with:
-        name: dita-output-files
-        path: D:\a\java-repo-two\java-repo-two/*.dita
-
-    - name: Upload changed files
-      if: steps.detect-changes.outputs.changes != 'Initial commit or no previous commit found.'
-      uses: actions/upload-artifact@v2
-      with:
-        name: changed-files
-        path: D:\a\java-repo-two\java-repo-two\changed_files\
