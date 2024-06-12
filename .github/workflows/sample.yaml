@@ -32,6 +32,7 @@ jobs:
           } else {
             echo "Only one commit in the repository."
           }
+          ls
 
       - name: Check diff for specific file
         run: |
@@ -41,6 +42,7 @@ jobs:
           } else {
             echo "No previous commit to diff  against."
           }
+          ls
 
       - name: Upload output files
         uses: actions/upload-artifact@v2
