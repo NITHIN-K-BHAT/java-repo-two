@@ -30,7 +30,7 @@ jobs:
       - name: Check diff for specific file
         run: |
           cd D:\a\java-repo-two\java-repo-two
-          git diff $PREVIOUS_COMMIT HEAD -- java-repo-one/*.java || echo "No changes"
+          git diff $PREVIOUS_COMMIT HEAD -- D:\a\java-repo-two\java-repo-two || echo "No changes"
 
       - name: Upload output files
         uses: actions/upload-artifact@v2
