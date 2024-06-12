@@ -25,7 +25,7 @@ jobs:
       - name: Check diff for specific file
         run: |
           cd D:\a\java-repo-two\java-repo-two
-          git diff HEAD^ HEAD -- java-repo-one/<path-to-file>
+          git diff HEAD~1 HEAD -- java-repo-one/DitaMapProcessor.java
 
       - name: Upload output files
         uses: actions/upload-artifact@v2
