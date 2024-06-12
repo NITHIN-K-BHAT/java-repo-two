@@ -38,7 +38,7 @@ jobs:
       - name: Print changed files
         run: |
           echo "Changed files:"
-          cat changed-files.txt
+          cat changed-files.dita
 
       - name: Upload output files
         uses: actions/upload-artifact@v2
