@@ -41,6 +41,12 @@ jobs:
           echo "Changed files:"
           echo "${{ steps.changed.outputs.changed-files }}"
 
+      - name: Upload changed files
+        uses: actions/upload-artifact@v2
+        with:
+          name: changed-files
+          path: ${{ steps.changed.outputs.changed-files }}
+
       - name: Upload output files
         uses: actions/upload-artifact@v2
         with:
