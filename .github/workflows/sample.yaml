@@ -39,7 +39,7 @@ jobs:
           if ($env:PREVIOUS_COMMIT) {
             git diff $env:PREVIOUS_COMMIT HEAD -- DitaMapProcessor.java || echo "No changes"
           } else {
-            echo "No previous commit to diff against."
+            echo "No previous commit to diff  against."
           }
 
       - name: Upload output files
