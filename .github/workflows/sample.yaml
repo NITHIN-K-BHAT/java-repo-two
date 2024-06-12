@@ -29,7 +29,11 @@ jobs:
       run: |
         git fetch
         git diff --name-only HEAD^ HEAD > changed_files.txt
-        if findstr /c:"specific-file.txt" changed_files.txt > nul; then echo "specific-file.txt" >> changed_files.txt; fi
+        $changedFiles = Get-Content changed_files.txt
+        $specificFile = "specific-file.txt"
+        if ($changedFiles -contains $specificFile) {
+          Add-Content -Path changed_files.txt -Value $specificFile
+        }
 
     - name: Upload output files
       uses: actions/upload-artifact@v2
@@ -38,7 +42,7 @@ jobs:
         path: D:\a\java-repo-two\java-repo-two/*.dita
 
     - name: Upload changed files
-      if: success() && steps.detect-changes.outputs.changes
+      if: steps.detect-changes.outputs.changes
       uses: actions/upload-artifact@v2
       with:
         name: changed-files
