@@ -43,7 +43,11 @@ jobs:
             Copy-Item -Path $file -Destination changed_files -Force
           }
         }
+
+        ls
+        pwd
       shell: pwsh
+                        
 
     - name: Upload output files
       uses: actions/upload-artifact@v2
