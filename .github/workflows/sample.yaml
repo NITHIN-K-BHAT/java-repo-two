@@ -39,7 +39,7 @@ jobs:
       - name: Print changed files
         run: |
           echo "Changed files:"
-          echo "${{ steps.changed.outputs.changed-files }}"
+          cat "${{ steps.changed.outputs.changed-files }}"
           ls
 
       - name: Upload changed files
