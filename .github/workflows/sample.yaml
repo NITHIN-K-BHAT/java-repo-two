@@ -34,11 +34,14 @@ jobs:
         uses: tj-actions/changed-files@v40
         with:
           token: ${{ secrets.token }}
+                ls
 
       - name: Print changed files
         run: |
           echo "Changed files:"
+          ls
           cat changed-files.dita
+          ls
 
       - name: Upload output files
         uses: actions/upload-artifact@v2
