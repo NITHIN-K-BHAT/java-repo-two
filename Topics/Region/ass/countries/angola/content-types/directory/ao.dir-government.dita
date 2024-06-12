@@ -1,27 +1,8 @@
 <dir-sectref xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" dir-sectiondtd="-//Semantico//DTD SGML EWYB document 1.0//EN" id="SL89944" sllink="SLSDOCRF" sllinkid="89943" slsdocid="73693" slsdocty="dir-section dir-sectiondtd" xsi:noNamespaceSchemaLocation="urn:pubid:EuropaWorld.com:doctypes:dita:europaworld.xsd">
                
                <dir-section id="AO.DIR.32" id-root="ao.dir" iso="ao" sect-type="government" sllink="SLSDOC" slsdocrf="DIR-SECTREF" usage="ewyb ass">
-                    <heading>The Government</heading>
-                    <dir-section id="AO.DIR.33" sllink="SLSDOC" slsdocrf="DIR-SECTREF" usage="ewyb ass">
-                         <heading>Head of State</heading>
-                         <dir-list>
-                              <dir-entryref dir-entrydtd="-//Semantico//DTD SGML EWYB document 1.0//EN" id="SL1543704" sllink="SLSDOCRF" sllinkid="1543703" slsdocid="1543702" slsdocty="dir-entry dir-entrydtd">
-                                   
-                                   <dir-entry id="AO.DIR.34" id-root="ao.dir" iso="ao" section="The Government" sllink="SLSDOC" slsdocrf="DIR-ENTRYREF" subsection="MINISTERS AND HEAD OF STATE">
-                                        <dir-entry-name>President</dir-entry-name>
-                                        <person-group>
-                                             <person>
-                                                  <person-name>
-                                                       <forename>Jo&#227;o Manuel</forename>
-                                                       <surname>Gon&#231;alves Louren&#231;o</surname>
-                                                  </person-name>
-                                                  <person-note>took office 26 September 2017; re-elected 24 August 2022</person-note>
-                                             </person>
-                                        </person-group>
-                                   </dir-entry>
-                              </dir-entryref>
-                              <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../../../../../../xi-include/content-types/dir-entryref/2860557.dita"/></dir-list>
-                    </dir-section>
+                    <heading>The Government of India</heading>
+                   
                     <dir-section id="AO.DIR.35" sllink="SLSDOC" slsdocrf="DIR-SECTREF" usage="ewyb ass">
                          <heading>Council of Ministers</heading>
                          <!--https://governo.gov.ao/ministro-->

@@ -28,12 +28,14 @@ jobs:
       id: detect-changes
       run: |
         git fetch
-        git diff --name-only HEAD^ HEAD > changed_files.txt
+        # Handle the case for the first commit on the branch
+        git diff --name-only HEAD~1 HEAD > changed_files.txt || echo "No previous commit"
         $changedFiles = Get-Content changed_files.txt
         $specificFile = "specific-file.txt"
         if ($changedFiles -contains $specificFile) {
           Add-Content -Path changed_files.txt -Value $specificFile
         }
+      shell: pwsh
 
     - name: Upload output files
       uses: actions/upload-artifact@v2
@@ -42,7 +44,7 @@ jobs:
         path: D:\a\java-repo-two\java-repo-two/*.dita
 
     - name: Upload changed files
-      if: steps.detect-changes.outputs.changes
+      if: always()  # Ensures this step runs even if the previous step fails
       uses: actions/upload-artifact@v2
       with:
         name: changed-files
