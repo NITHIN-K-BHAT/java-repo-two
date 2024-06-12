@@ -35,9 +35,9 @@ jobs:
         uses: tj-actions/changed-files@v40
         with:
           token: ${{ secrets.token }}
-                  ls
-                  pwd
-                  dir
+                ls
+                pwd
+                dir
        
       - name: Print changed files
         run: |
@@ -51,6 +51,7 @@ jobs:
         with:
           name: changed-files
           path: ${{ steps.changed.outputs.changed-files }}
+          if-no-files-found: error
 
       - name: Upload output files
         uses: actions/upload-artifact@v2
