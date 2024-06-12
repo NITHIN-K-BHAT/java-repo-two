@@ -28,13 +28,20 @@ jobs:
       id: detect-changes
       run: |
         git fetch
-        # Get the list of changed files between the current commit and the previous commit
-        git diff --name-only HEAD~1 HEAD > changed_files.txt
+        # Check if there is a previous commit
+        if (git rev-parse HEAD~1 > $null 2>&1) {
+          # Get the list of changed files between the current commit and the previous commit
+          git diff --name-only HEAD~1 HEAD > changed_files.txt
+        } else {
+          echo "Initial commit or no previous commit found." > changed_files.txt
+        }
         # Create a directory to store the changed files
         mkdir changed_files
         # Copy each changed file to the 'changed_files' directory
         foreach ($file in Get-Content changed_files.txt) {
-          Copy-Item -Path $file -Destination changed_files -Force
+          if (Test-Path $file) {
+            Copy-Item -Path $file -Destination changed_files -Force
+          }
         }
       shell: pwsh
 
@@ -45,6 +52,7 @@ jobs:
         path: D:\a\java-repo-two\java-repo-two/*.dita
 
     - name: Upload changed files
+      if: steps.detect-changes.outputs.changes != 'Initial commit or no previous commit found.'
       uses: actions/upload-artifact@v2
       with:
         name: changed-files
