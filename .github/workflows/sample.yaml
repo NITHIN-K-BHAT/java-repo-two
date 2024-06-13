@@ -40,6 +40,8 @@ jobs:
             git diff $env:PREVIOUS_COMMIT HEAD -- DitaMapProcessor.java || echo "No changes"
           } else {
             echo "No previous commit."
+          }
+            
 
       - name: Upload output files
         uses: actions/upload-artifact@v4
