@@ -29,7 +29,8 @@ jobs:
             echo "Previous commit: $PREVIOUS_COMMIT"
             echo "PREVIOUS_COMMIT=$PREVIOUS_COMMIT" | Out-File -FilePath $env:GITHUB_ENV -Append
           } else {
-            echo "Only one commit in the repository."}
+            echo "Only one commit in the repository."
+            }
 
       - name: Check diff for specific file
         shell: pwsh
