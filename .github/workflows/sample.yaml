@@ -42,7 +42,7 @@ jobs:
             echo "No previous commit."
 
       - name: Upload output files
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: dita-output-files
           path: D:\a\java-repo-two\java-repo-two\*.dita
