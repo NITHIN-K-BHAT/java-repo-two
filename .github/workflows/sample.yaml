@@ -16,37 +16,32 @@ jobs:
         run: |
           cd D:\a\java-repo-two\java-repo-two
           git clone https://github.com/NITHIN-K-BHAT/java-repo-one.git
-          cd java-repo-one
-          cd D:\a\java-repo-two\java-repo-two
           cp -r java-repo-one\* .
           javac DitaMapProcessor.java
           java DitaMapProcessor
 
-          - name: Get previous commit
-          run: |
-            $commits = git rev-list --count HEAD
-            if ($commits -gt 1) {
-              $PREVIOUS_COMMIT = git log --format=%H -n 1 HEAD^
-              echo "Previous commit: $PREVIOUS_COMMIT"
-              echo "PREVIOUS_COMMIT=$PREVIOUS_COMMIT" | Out-File -FilePath $env:GITHUB_ENV -Append
-            } else {
-              echo "Only one commit in the repository."
-            }
-        
-          - name: Check diff for specific file
-            run: |
-              cd D:\a\java-repo-two\java-repo-two
-              if ($env:PREVIOUS_COMMIT) {
-                # Use the environment variable directly in the command
-                git diff $env:PREVIOUS_COMMIT HEAD -- DitaMapProcessor.java || echo "No changes"
-              } else {
-                echo "No previous commit."
-              }
-          
+      - name: Get previous commit
+        shell: pwsh
+        run: |
+          $commits = git rev-list --count HEAD
+          if ($commits -gt 1) {
+            $PREVIOUS_COMMIT = git log --format=%H -n 1 HEAD^
+            echo "Previous commit: $PREVIOUS_COMMIT"
+            echo "PREVIOUS_COMMIT=$PREVIOUS_COMMIT" | Out-File -FilePath $env:GITHUB_ENV -Append
+          } else {
+            echo "Only one commit in the repository."
 
+      - name: Check diff for specific file
+        shell: pwsh
+        run: |
+          cd D:\a\java-repo-two\java-repo-two
+          if ($env:PREVIOUS_COMMIT) {
+            git diff $env:PREVIOUS_COMMIT HEAD -- DitaMapProcessor.java || echo "No changes"
+          } else {
+            echo "No previous commit."
 
       - name: Upload output files
         uses: actions/upload-artifact@v2
         with:
           name: dita-output-files
-          path: D:\a\java-repo-two\java-repo-two/*.dita
+          path: D:\a\java-repo-two\java-repo-two\*.dita
